@@ -12,13 +12,13 @@ use App\Events;
 */
 
 Route::get('/', function () {
-    broadcast(new App\Events\messagingWebsocketEvent('some data'));
+  //  broadcast(new messagingWebsocketEvent('some data'));
     return view('welcome');
 });
 
 Route::get('/chats', 'chatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');
+Route::get('messages', 'chatsController@fetchMessages');
+Route::post('messages', 'chatsController@sendMessage');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
